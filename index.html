@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Web app that counts the time spent learning programming"
+    />
+    <title>Learning Timer</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- using Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/3766d2d2c4.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      href="http://fonts.googleapis.com/css?family=Lato:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body>
+    <div class="main-container">
+      <header>
+        <h1>Learning timer</h1>
+      </header>
+
+      <main>
+        <div id="left-container">
+          <section id="total-time">
+            <h2>Total elapsed time</h2>
+            <p>1h 53min</p>
+          </section>
+
+          <section id="control-panel">
+            <h2>Control panel</h2>
+            <p>Select mode</p>
+
+            <select id="dropdown-auto-manual" required>
+              <option value="1">Auto</option>
+              <option value="2">Manual</option>
+            </select>
+
+            <div id="auto">
+              <input id="start-button" type="button" value="Start" />
+              <input id="stop-button" type="button" value="Stop" />
+              <div id="current-session">
+                <p>Started at: <span id="auto-hour-start">15:23</span></p>
+                <p>
+                  Elapsed time: <span id="auto-elapsed-time">0h 29min</span>
+                </p>
+              </div>
+            </div>
+
+            <div id="manual">
+              <input id="manual-entered-minutes" type="number" />
+              <p>min</p>
+              
+              <label for="textarea-comment">Comment</label>
+                <textarea
+                  id="textarea-comment"
+                  placeholder="Enter your comment here"
+                  rows="2"
+                ></textarea>
+
+
+              <input id="add-button" type="button" value="Add" />
+            </div>
+          </section>
+        </div>
+
+        <div id="right-container">
+          <section id="history">
+            <h2>History</h2>
+            <table>
+              <tr>
+                <td>ID</td>
+                <td>From</td>
+                <td>To</td>
+                <td>Mins</td>
+                <td>Comment</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>12:24</td>
+                <td>13:24</td>
+                <td>60</td>
+                <td>My comment</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>12:24</td>
+                <td>13:24</td>
+                <td>60</td>
+                <td>My comment is longer as fuck xDDDDDD lol</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>12:24</td>
+                <td>13:24</td>
+                <td>60</td>
+                <td>My comment</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>12:24</td>
+                <td>13:24</td>
+                <td>60</td>
+                <td>My comment</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>12:24</td>
+                <td>13:24</td>
+                <td>60</td>
+                <td>My comment</td>
+              </tr>
+            </table>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
