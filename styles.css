@@ -6,7 +6,6 @@
   margin: 0;
 }
 
-
 /* FONT-SIZE */
 html {
   font-size: 62.5%; /* after it: 1rem=10px, 2rem=20px, 3rem=30px */
@@ -48,10 +47,10 @@ main {
   max-width: 1000px;
 }
 
-#left-container, #right-container {
+#left-container,
+#right-container {
   width: 49%;
 }
-
 
 #total-time,
 #control-panel,
@@ -65,11 +64,14 @@ main {
 }
 
 h2 {
-    font-weight: 800;
+  font-weight: 800;
 }
 
-input, select, textarea { /*add some border-radius*/
-border-radius: 10%;
+input,
+select,
+textarea {
+  /*add some border-radius*/
+  border-radius: 10%;
 }
 /* ====== Animations for buttons ====== */
 
@@ -81,39 +83,38 @@ input[type="button"]:hover {
   cursor: pointer;
 }
 
-input[type="button"]:active {
+input[type="button"]:active:enabled {
+  /* when button is active, but property 'enabled'==true */
   transform: scale(1.02);
 }
 /* ====== End animations for buttons ====== */
 
-
-input, select { /* Safari - color of buttons */
+input,
+select {
+  /* Safari - color of buttons */
   color: black;
 }
-
 
 /* ----------------------- HEADER ----------------------- */
 
 header h1 {
-    font-size: 3rem;
-    padding-bottom: 20px;
+  font-size: 3rem;
+  padding-bottom: 20px;
 }
 /* ----------------------- END HEADER ----------------------- */
 
 /* ----------------------- TOTAL TIME ----------------------- */
 
 #total-time p {
-    font-size: 3rem;
+  font-size: 3rem;
 }
-
-
 
 /* ----------------------- END TOTAL TIME ----------------------- */
 
 /* ----------------------- CONTROL PANEL ----------------------- */
 #control-panel p {
-font-style: italic;
-display: inline-block;
+  font-style: italic;
+  display: inline-block;
 }
 
 #dropdown-auto-manual {
@@ -131,7 +132,8 @@ display: inline-block;
   padding: 10px;
 }
 
-#auto #start-button, #auto #stop-button {
+#auto #start-button,
+#auto #stop-button {
   font-size: 1rem;
   font-weight: 500;
   padding: 3px 7px;
@@ -147,6 +149,12 @@ display: inline-block;
 #auto #stop-button {
   background-color: #e30722;
   border-color: #4a040d;
+}
+
+input[type="button"]:disabled,
+#input[type="button"][disabled] {
+  opacity: 0.5;
+  cursor: default;
 }
 
 #current-session {
@@ -182,7 +190,8 @@ display: inline-block;
   border: 3px solid black;
 }
 
-#manual label, textarea {
+#manual label,
+textarea {
   display: block;
   margin: 0 auto;
 }
@@ -210,7 +219,6 @@ display: inline-block;
 
 /* ====== END div MANUAL ====== */
 
-
 /* ----------------------- END CONTROL PANEL ----------------------- */
 
 /* ----------------------- HISTORY ----------------------- */
@@ -218,18 +226,17 @@ display: inline-block;
 table {
   border-collapse: collapse;
   margin: 15px auto;
-  width: 90%; 
-
+  width: 90%;
 }
 
-th, td {
+th,
+td {
   border: 2px solid white;
   padding: 5px;
   font-size: 0.8rem;
 }
 
 /* ----------------------- END HISTORY ----------------------- */
-
 
 /* ----------------------- @media queries ----------------------- */
 
@@ -240,7 +247,8 @@ th, td {
 }
 
 @media (max-width: 900px) {
-  #left-container, #right-container {
+  #left-container,
+  #right-container {
     width: 90%;
   }
   table td {
@@ -267,7 +275,6 @@ th, td {
   #auto-elapsed-time {
     font-size: 0.7rem;
   }
-
 }
 
 /* ----------------------- end @media queries ----------------------- */

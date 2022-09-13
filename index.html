@@ -33,7 +33,7 @@
         <div id="left-container">
           <section id="total-time">
             <h2>Total elapsed time</h2>
-            <p>1h 53min</p>
+            <p id="total-elapsed-time">##h ##min</p>
           </section>
 
           <section id="control-panel">
@@ -46,12 +46,17 @@
             </select>
 
             <div id="auto">
-              <input id="start-button" type="button" value="Start" />
+              <input
+                id="start-button"
+                type="button"
+                value="Start"
+                onclick="addRecord_ManualMode(22,'xxx')"
+              />
               <input id="stop-button" type="button" value="Stop" />
               <div id="current-session">
-                <p>Started at: <span id="auto-hour-start">15:23</span></p>
+                <p>Started at: <span id="auto-hour-start">##:###</span></p>
                 <p>
-                  Elapsed time: <span id="auto-elapsed-time">0h 29min</span>
+                  Elapsed time: <span id="auto-elapsed-time">##h ##min</span>
                 </p>
               </div>
             </div>
@@ -88,77 +93,12 @@
                 <td>Mins</td>
                 <td>Comment</td>
               </tr>
-              <tr>
-                <td>1</td>
-                <td>12:24</td>
-                <td>13:24</td>
-                <td>60</td>
-                <td>My comment</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>12:24</td>
-                <td>13:24</td>
-                <td>60</td>
-                <td>My comment is longer as fuck xDDDDDD lol</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>12:24</td>
-                <td>13:24</td>
-                <td>60</td>
-                <td>My comment</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>12:24</td>
-                <td>13:24</td>
-                <td>60</td>
-                <td>My comment</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>12:24</td>
-                <td>13:24</td>
-                <td>60</td>
-                <td>My comment</td>
-              </tr>
             </table>
           </section>
         </div>
       </main>
     </div>
+    <!-- INCLUDE JAVASCRIPT CODE -->
+    <script src="script.js"></script>
   </body>
 </html>
-
-<script type="text/javascript">
-  //TEST!!!! - clock
-  const currentDate = new Date();
-  const actualTime = currentDate.getHours() + ":" + currentDate.getMinutes();
-  document.getElementById("auto-hour-start").textContent = actualTime; //new text
-</script>
-
-<script>
-  //modify table
-  function addRecord_AutoMode(from, to, comment) {
-    //TODO
-    let table = document.querySelector("#history-table tbody");
-    table.innerHTML +=
-      "<tr><td>Lp</td><td>From</td><td>To</td><td>Mins</td><td>Comment</td></tr>";
-  }
-
-  function addRecord_ManualMode(mins, comment) {
-    //works well partly
-    let minutesFromInput = document.getElementById(
-      "manual-entered-minutes"
-    ).value;
-    let commentFromInput = document.getElementById("textarea-comment").value;
-    let table = document.querySelector("#history-table tbody");
-    table.innerHTML +=
-      "<tr><td>Lp</td><td>-</td><td>-</td><td>" +
-      minutesFromInput +
-      "</td><td>" +
-      commentFromInput +
-      "</td></tr>";
-  }
-</script>
