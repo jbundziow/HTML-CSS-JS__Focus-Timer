@@ -59,16 +59,20 @@
             <div id="manual">
               <input id="manual-entered-minutes" type="number" />
               <p>min</p>
-              
+
               <label for="textarea-comment">Comment</label>
-                <textarea
-                  id="textarea-comment"
-                  placeholder="Enter your comment here"
-                  rows="2"
-                ></textarea>
+              <textarea
+                id="textarea-comment"
+                placeholder="Enter your comment here"
+                rows="2"
+              ></textarea>
 
-
-              <input id="add-button" type="button" value="Add" />
+              <input
+                id="add-button"
+                type="button"
+                value="Add"
+                onclick="addRecord_ManualMode(60, 'sd')"
+              />
             </div>
           </section>
         </div>
@@ -76,7 +80,7 @@
         <div id="right-container">
           <section id="history">
             <h2>History</h2>
-            <table>
+            <table id="history-table">
               <tr>
                 <td>ID</td>
                 <td>From</td>
@@ -127,10 +131,34 @@
   </body>
 </html>
 
-
-
-<script type="text/javascript"> //TEST!!!!
+<script type="text/javascript">
+  //TEST!!!! - clock
   const currentDate = new Date();
-  const actualTime = currentDate.getHours() + ':' + currentDate.getMinutes();
+  const actualTime = currentDate.getHours() + ":" + currentDate.getMinutes();
   document.getElementById("auto-hour-start").textContent = actualTime; //new text
+</script>
+
+<script>
+  //modify table
+  function addRecord_AutoMode(from, to, comment) {
+    //TODO
+    let table = document.querySelector("#history-table tbody");
+    table.innerHTML +=
+      "<tr><td>Lp</td><td>From</td><td>To</td><td>Mins</td><td>Comment</td></tr>";
+  }
+
+  function addRecord_ManualMode(mins, comment) {
+    //works well partly
+    let minutesFromInput = document.getElementById(
+      "manual-entered-minutes"
+    ).value;
+    let commentFromInput = document.getElementById("textarea-comment").value;
+    let table = document.querySelector("#history-table tbody");
+    table.innerHTML +=
+      "<tr><td>Lp</td><td>-</td><td>-</td><td>" +
+      minutesFromInput +
+      "</td><td>" +
+      commentFromInput +
+      "</td></tr>";
+  }
 </script>
