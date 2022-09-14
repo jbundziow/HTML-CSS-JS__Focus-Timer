@@ -1,7 +1,8 @@
 /* BUTTONS DISABLED */
-/*   document.getElementById("start-button").disabled = true;
+/* /*   document.getElementById("start-button").disabled = true;
   document.getElementById("stop-button").disabled = true;
-  document.getElementById("add-button").disabled = true; */
+  document.getElementById("add-button").disabled = true;
+  document.getElementById("dropdown-auto-manual").disabled = true; */
 
 
   //TEST!!!! - clock
@@ -12,6 +13,9 @@
   const currentDate = new Date();
   const actualTime = addLeadingZeros(currentDate.getHours(), 2) + ":" + addLeadingZeros(currentDate.getMinutes(), 2);
   document.getElementById("auto-hour-start").textContent = actualTime; //new text
+
+/* FUNCTION THAT CONVERTS MINUTES INTO '#h #min' */
+convertMinutesToHours = (mins) => parseInt(mins/60) +"h " + parseInt(mins%60) + " min";
 
 /* COUNT TOTAL ELAPSED TIME AND DISPLAY IT ON SCREEN */
 setInterval(function () {
@@ -25,7 +29,20 @@ setInterval(function () {
       document.getElementById("total-elapsed-time").textContent = convertMinutesToHours(sum); //sum coverted into hours and displayed on screen
     
   }, 100); //repeat every 100ms
-    
+
+  /* SELECT MODE -> SWITCHING WINDOWS */
+  setInterval(function () {
+    let selectedOption = document.getElementById("dropdown-auto-manual").value;
+  if (selectedOption == 1) //auto
+  {
+    document.getElementById("auto").style.display="block";
+    document.getElementById("manual").style.display="none";
+  }
+  else {
+    document.getElementById("auto").style.display="none";
+    document.getElementById("manual").style.display="block";
+  }
+  }, 100); //repeat every 100ms
   
   /* IN MANUAL MODE IF THERE ARE EMPTY INPUT FIELDS => DISABLE BUTTON 'ADD'*/
   setInterval(function () {
@@ -44,12 +61,7 @@ setInterval(function () {
 
 
   //modify table
-  function addRecord_AutoMode(from, to, comment) {
-    //TODO
-    let table = document.querySelector("#history-table tbody");
-    table.innerHTML +=
-      "<tr><td>Lp</td><td>From</td><td>To</td><td>Mins</td><td>Comment</td></tr>";
-  }
+
 
   function addRecord_ManualMode() {
 
@@ -75,7 +87,12 @@ setInterval(function () {
       document.getElementById("textarea-comment").value = "";
   }
 
-/* FUNCTION THAT CONVERTS MINUTES INTO '#h #min' */
-convertMinutesToHours = (mins) => parseInt(mins/60) +"h " + parseInt(mins%60) + " min";
 
 
+
+function addRecord_AutoMode(from, to, comment) {
+  //TODO
+  let table = document.querySelector("#history-table tbody");
+  table.innerHTML +=
+    "<tr><td>Lp</td><td>From</td><td>To</td><td>Mins</td><td>Comment</td></tr>";
+}

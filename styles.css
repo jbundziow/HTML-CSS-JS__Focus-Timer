@@ -124,6 +124,11 @@ header h1 {
   border: 3px solid black;
 }
 
+#dropdown-auto-manual:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
 /* ====== div AUTO ====== */
 
 #auto {
