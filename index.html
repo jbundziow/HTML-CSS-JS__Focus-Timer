@@ -33,7 +33,7 @@
         <div id="left-container">
           <section id="total-time">
             <h2>Total elapsed time</h2>
-            <p id="total-elapsed-time">##h ##min</p>
+            <p id="total-elapsed-time">0h 0min</p>
           </section>
 
           <section id="control-panel">
@@ -50,14 +50,17 @@
                 id="start-button"
                 type="button"
                 value="Start"
-                onclick="addRecord_ManualMode(22,'xxx')"
+                onclick="startButtonPushed()"
               />
-              <input id="stop-button" type="button" value="Stop" />
+              <input
+                id="stop-button"
+                type="button"
+                value="Stop"
+                onclick="stopButtonPushed()"
+              />
               <div id="current-session">
-                <p>Started at: <span id="auto-hour-start">##:###</span></p>
-                <p>
-                  Elapsed time: <span id="auto-elapsed-time">##h ##min</span>
-                </p>
+                <p>Started at: <span id="auto-hour-start"> - </span></p>
+                <p>Elapsed time: <span id="auto-elapsed-time"> - </span></p>
               </div>
             </div>
 
