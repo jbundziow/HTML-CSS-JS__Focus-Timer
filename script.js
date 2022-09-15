@@ -1,22 +1,12 @@
-/* BUTTONS DISABLED */
-/* /*   document.getElementById("start-button").disabled = true;
-  document.getElementById("stop-button").disabled = true;
-  document.getElementById("add-button").disabled = true;
-  document.getElementById("dropdown-auto-manual").disabled = true; */
-
-
-  //TEST!!!! - clock
-  /* function addLeadingZeros(num, totalLength) { //it converts eg. '3' mins into '03' mins
-    return String(num).padStart(totalLength, '0');
-  }
-  const currentDate = new Date();
-  const actualTime = addLeadingZeros(currentDate.getHours(), 2) + ":" + addLeadingZeros(currentDate.getMinutes(), 2);
-  document.getElementById("auto-hour-start").textContent = actualTime; //new text */
-
-
-//MAIN CODE
+//GLOBAL VARIABLES
+var timeWhenStartButtonWasClicked;
 
 document.getElementById("stop-button").disabled = true; //disable button 'Stop' on the beginning
+
+/* SHOW MESSAGE WHEN USER TRIES TO CLOSE THE BROWSER WINDOW (MAYBE ACCIDENTALY) */
+      window.onbeforeunload = function () {
+        return "Did you save your stuff?";
+      };
 
 /* FUNCTION THAT CONVERTS MINUTES INTO '#h #min' */
 convertMinutesToHours = (mins) => parseInt(mins/60) +"h " + parseInt(mins%60) + " min";
@@ -84,12 +74,12 @@ setInterval(function () {
   /* SELECT MODE -> SWITCHING WINDOWS */
   setInterval(function () {
     let selectedOption = document.getElementById("dropdown-auto-manual").value;
-  if (selectedOption == 1) //auto
+  if (selectedOption == 1) //auto mode
   {
     document.getElementById("auto").style.display="block";
     document.getElementById("manual").style.display="none";
   }
-  else {
+  else { //manual mode
     document.getElementById("auto").style.display="none";
     document.getElementById("manual").style.display="block";
   }
@@ -127,7 +117,7 @@ setInterval(function () {
       document.getElementById("textarea-comment").value = "";
   }
 
-  var timeWhenStartButtonWasClicked;
+
   function startButtonPushed () {
     //disable buttons and enable stop-button
     document.getElementById("start-button").disabled = true;
