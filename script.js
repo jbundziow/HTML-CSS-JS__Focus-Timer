@@ -41,6 +41,19 @@ convertMilisecondsToMinutes = (miliseconds) => parseInt(miliseconds/1000/60);
     return String(num).padStart(totalLength, '0');
   }
 
+  /* FUNCTION THAT ADDS NEXT RECORDS TO THE TABLE 'history-table' */
+  function addRecordToTheTable(from, to, mins, comment) {
+  
+    let table = document.querySelector("#history-table tbody");
+    table.innerHTML +=
+        "<tr><td>" + nextTableID() + 
+        "</td><td>" + from + "</td><td>" + to + "</td><td>" +
+        mins +
+        "</td><td>" +
+        comment +
+        "</td></tr>";
+  }
+
 /* COUNT TOTAL ELAPSED TIME FROM TABLE AND DISPLAY IT ON SCREEN */
 setInterval(function () {
     var myTable = document.getElementById("history-table");
@@ -98,24 +111,16 @@ setInterval(function () {
   }, 100);
 
 
-  //modify table
 
-  function addRecord_ManualMode() {
+  function addButtonPushed() {
     //get elements
     let minutesFromInput = document.getElementById(
       "manual-entered-minutes"
     ).value;
     let commentFromInput = document.getElementById("textarea-comment").value;
-    let table = document.querySelector("#history-table tbody");
 
     //enter record to the table
-    table.innerHTML +=
-      "<tr><td>" + nextTableID() + 
-      "</td><td>-</td><td>-</td><td>" +
-      minutesFromInput +
-      "</td><td>" +
-      commentFromInput +
-      "</td></tr>";
+      addRecordToTheTable(" - ", " - ", minutesFromInput, commentFromInput);
 
       //clear input 'min' and 'comment'
       document.getElementById("manual-entered-minutes").value = "";
@@ -146,27 +151,24 @@ setInterval(function () {
     let timeWhenStopButtonWasClicked = currentDate.getTime();
     
 
-    //from
-    console.log(convertDateObjectIntoHHMM(timeWhenStartButtonWasClicked)); //TODO: works OK, put it later into table
-
-    //to
-    console.log(convertDateObjectIntoHHMM(timeWhenStopButtonWasClicked)); //TODO: works OK, put it later into table
-
-    //mins
-    console.log(convertMilisecondsToMinutes(timeWhenStopButtonWasClicked-timeWhenStartButtonWasClicked)); //TODO: works OK, put it later into table
-
-    //TODO:
     //add record into the table
-    //'select mode', 'start' enabled; 'stop' disabled
-    //started at - clear it from 22:05 into " - "
-    //at the end:
-    //timeWhenStartButtonWasClicked = 0;
-    //timeWhenStopButtonWasClicked = 0;
+    let from = convertDateObjectIntoHHMM(timeWhenStartButtonWasClicked); //TODO: works OK, put it later into table
+    let to = convertDateObjectIntoHHMM(timeWhenStopButtonWasClicked); //TODO: works OK, put it later into table
+    let mins = convertMilisecondsToMinutes(timeWhenStopButtonWasClicked-timeWhenStartButtonWasClicked); //TODO: works OK, put it later into table
+    addRecordToTheTable(from, to, mins, "AUTO MODE");
+
+
+    //disable and enable buttons
+    document.getElementById("dropdown-auto-manual").disabled = false;
+    document.getElementById("start-button").disabled = false;
+    document.getElementById("stop-button").disabled = true;
+
+
+    //clear 'Started at:'
+    document.getElementById("auto-hour-start").textContent = " - ";
+
+    //at the end assign 0 to variables
+    timeWhenStartButtonWasClicked = 0;
+    timeWhenStopButtonWasClicked = 0;
   }
 
-function addRecord_AutoMode(id, from, to, mins, comment) {
-  //TODO
-  let table = document.querySelector("#history-table tbody");
-  table.innerHTML +=
-    "<tr><td>Lp</td><td>From</td><td>To</td><td>Mins</td><td>Comment</td></tr>";
-}
