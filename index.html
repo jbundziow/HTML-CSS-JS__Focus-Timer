@@ -97,11 +97,19 @@
                 <td>Comment</td>
               </tr>
             </table>
+            <input
+              id="export-table-button"
+              type="button"
+              value="Export table"
+              onclick="exportTableToExcel('history-table')"
+            />
           </section>
         </div>
       </main>
     </div>
     <!-- INCLUDE JAVASCRIPT CODE -->
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/table2excel.js"></script>
+    <script src="js/exportTable.js"></script>
   </body>
 </html>
