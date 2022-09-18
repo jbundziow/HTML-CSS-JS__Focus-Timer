@@ -44,6 +44,19 @@ convertMilisecondsToMinutes = (miliseconds) => parseInt(miliseconds/1000/60);
         "</td></tr>";
   }
 
+  /* FUNCTION THAT ADDS RECORD TO THE TABLE IF USER CLICKS CTRL+ENTER IN TEXTAREA */
+  function ctrlEnterAddRecordToTheTable(event) {
+    //If ctrl+enter is pressed
+    if (event.ctrlKey) {
+      let mins_text = document.getElementById("manual-entered-minutes").value;
+      let textarea_text = document.getElementById("textarea-comment").value;
+
+      if (mins_text != "" && textarea_text != "") {
+      addButtonPushed();
+      }
+  }
+}
+
 /* COUNT TOTAL ELAPSED TIME FROM TABLE AND DISPLAY IT ON SCREEN */
 setInterval(function () {
     var myTable = document.getElementById("history-table");
@@ -56,6 +69,17 @@ setInterval(function () {
       document.getElementById("total-elapsed-time").textContent = convertMinutesToHours(sum); //sum coverted into hours and displayed on screen
     
   }, 100); //repeat every 100ms
+
+  /* SHOW 'Export table' BUTTON WHILE TABLE ISN'T EMPTY */
+setInterval(function () {
+  if (nextTableID() > 1) {
+    document.getElementById("export-table-button").style.display = "initial";
+  }
+  else {
+    document.getElementById("export-table-button").style.display = "none";
+  }
+  
+}, 100); //repeat every 100ms
 
   /* SHOW CURRENT ELAPSED TIME SINCE START BUTTON IS CLICKED IN AUTO MODE */
 setInterval(function () {
@@ -161,4 +185,3 @@ setInterval(function () {
     timeWhenStartButtonWasClicked = 0;
     timeWhenStopButtonWasClicked = 0;
   }
-

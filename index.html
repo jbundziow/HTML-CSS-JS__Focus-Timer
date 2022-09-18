@@ -73,12 +73,13 @@
                 id="textarea-comment"
                 placeholder="Enter your comment here"
                 rows="2"
+                onkeypress="ctrlEnterAddRecordToTheTable(event)"
               ></textarea>
 
               <input
                 id="add-button"
                 type="button"
-                value="Add"
+                value="Add (Ctrl+Enter)"
                 onclick="addButtonPushed()"
               />
             </div>
@@ -97,12 +98,14 @@
                 <td>Comment</td>
               </tr>
             </table>
-            <input
-              id="export-table-button"
-              type="button"
-              value="Export table"
-              onclick="exportTableToExcel('history-table')"
-            />
+            <div class="button-parent">
+              <input
+                id="export-table-button"
+                value="Export table"
+                type="button"
+                onclick="exportTableToExcel('history-table')"
+              />
+            </div>
           </section>
         </div>
       </main>
