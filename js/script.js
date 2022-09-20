@@ -164,12 +164,14 @@ setInterval(function () {
     const currentDate = new Date();
     let timeWhenStopButtonWasClicked = currentDate.getTime();
     
+    //alert -> user can type comment or not
+    let userComment = prompt("Enter a comment:", "AUTO MODE");
 
     //add record into the table
-    let from = convertDateObjectIntoHHMM(timeWhenStartButtonWasClicked); //TODO: works OK, put it later into table
-    let to = convertDateObjectIntoHHMM(timeWhenStopButtonWasClicked); //TODO: works OK, put it later into table
-    let mins = convertMilisecondsToMinutes(timeWhenStopButtonWasClicked-timeWhenStartButtonWasClicked); //TODO: works OK, put it later into table
-    addRecordToTheTable(from, to, mins, "AUTO MODE");
+    let from = convertDateObjectIntoHHMM(timeWhenStartButtonWasClicked);
+    let to = convertDateObjectIntoHHMM(timeWhenStopButtonWasClicked);
+    let mins = convertMilisecondsToMinutes(timeWhenStopButtonWasClicked-timeWhenStartButtonWasClicked);
+    addRecordToTheTable(from, to, mins, userComment);
 
 
     //disable and enable buttons
