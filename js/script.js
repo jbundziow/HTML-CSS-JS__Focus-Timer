@@ -1,5 +1,5 @@
 //GLOBAL VARIABLES
-var timeWhenStartButtonWasClicked;
+let timeWhenStartButtonWasClicked;
 
 document.getElementById("stop-button").disabled = true; //disable button 'Stop' on the beginning
 
@@ -13,7 +13,7 @@ convertMinutesToHours = (mins) => parseInt(mins/60) +"h " + parseInt(mins%60) + 
 
 /* FUNCTION THAT CONVERTS Date() INTO HH:MM */
 function convertDateObjectIntoHHMM(MilisecondsSince1970) {
-  var d = new Date(MilisecondsSince1970);
+  let d = new Date(MilisecondsSince1970);
   return addLeadingZeros(d.getHours(),2) + ":" + addLeadingZeros(d.getMinutes(),2);
 }
 
@@ -59,7 +59,7 @@ convertMilisecondsToMinutes = (miliseconds) => parseInt(miliseconds/1000/60);
 
 /* COUNT TOTAL ELAPSED TIME FROM TABLE AND DISPLAY IT ON SCREEN */
 setInterval(function () {
-    var myTable = document.getElementById("history-table");
+    let myTable = document.getElementById("history-table");
   
       let sum = 0;
       for (let i=1; i<myTable.rows.length; i++) //all rows in cell 'Mins'
@@ -86,8 +86,8 @@ setInterval(function () {
   if (document.getElementById("start-button").disabled == true)
   {
   const currentDate = new Date();
-  let actualLearningTimeInMinutes = convertMilisecondsToMinutes(currentDate.getTime() - timeWhenStartButtonWasClicked);
-  document.getElementById("auto-elapsed-time").textContent = convertMinutesToHours(actualLearningTimeInMinutes);
+  let actualFocusingTimeInMinutes = convertMilisecondsToMinutes(currentDate.getTime() - timeWhenStartButtonWasClicked);
+  document.getElementById("auto-elapsed-time").textContent = convertMinutesToHours(actualFocusingTimeInMinutes);
   }
   else
   {

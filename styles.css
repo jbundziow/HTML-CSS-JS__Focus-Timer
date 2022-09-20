@@ -26,7 +26,7 @@ body {
   border: 2px solid white;
   border-radius: 10px;
 
-  margin: 100px auto;
+  margin: 100px auto 0px auto;
   padding: 20px;
 }
 
@@ -261,6 +261,26 @@ td {
 }
 
 /* ----------------------- END HISTORY ----------------------- */
+
+
+/* ----------------------- AUTHOR ----------------------- */
+
+.author p {
+  font-family: monospace;
+  text-align: center;
+  margin: 2px auto;
+  padding-top: 4px;
+
+  font-size: 0.7rem;
+}
+
+.author a {
+  font-family: monospace;
+  color: white;
+}
+
+/* ----------------------- END AUTHOR ----------------------- */
+
 
 /* ----------------------- @media queries ----------------------- */
 
