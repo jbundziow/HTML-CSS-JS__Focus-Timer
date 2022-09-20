@@ -7,7 +7,7 @@ Web app in HTML/CSS/Javascript that counts the time spent focusing on something 
 ## Live preview
 
 ```sh
-https://html-css-js-focus-timer-bogew2lq8-jbundziow.vercel.app
+https://html-css-js-focus-timer.vercel.app
 ```
 
 ## How to run?
