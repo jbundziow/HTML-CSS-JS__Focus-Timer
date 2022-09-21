@@ -24,10 +24,11 @@ Manual mode works similar to auto mode except that time is entered manually. Use
 
 ### Additional features
 
-It is possible to save save data from table to .xlsx file which can be opened by popular "Microsoft Excel". Example of saved file is shown in the photo below. Note that the name of file consist date and time when it was exported.
+- It is possible to save save data from table to .xlsx file which can be opened by popular "Microsoft Excel". Example of saved file is shown in the photo below. Note that the name of file consist date and time when it was exported.
 
 ![focus-timer_export-to-excel](https://user-images.githubusercontent.com/102864070/191347042-3decec62-a78a-4439-a4e9-6c8b7239385f.png)
 
+- App is protected against accidental closing by alert "Leave the page? Changes that you made may not be saved.".
 
 ## Live preview
 
@@ -36,6 +37,9 @@ https://html-css-js-focus-timer.vercel.app
 ```
 
 ## How to run?
+#### Option 1
+- Just open the link above, in section "Live preview".
 
+#### Option 2
 - Download all files
 - Open index.html in your browser
